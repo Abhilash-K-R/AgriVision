@@ -37,6 +37,7 @@ node_modules/
 .pnp.js
 frontend/dist/
 frontend/build/
+frontend/.tsupgrader/
 .npm
 npm-debug.log*
 yarn-debug.log*
