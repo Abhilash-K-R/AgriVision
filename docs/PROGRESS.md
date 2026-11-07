@@ -68,12 +68,13 @@
 - **Overall Project Status**: feature branch `feat/agrivision-v1` has a local application commit. Production readiness and release are not verified.
 
 ## Current Git housekeeping
-- Current branch: `fix/typescript-package-upgrade-20261107195947`; dependency-upgrade implementation commit: `f9c4c02 chore(frontend): finalize dependency upgrade validation`.
+- Current branch: `feat/agrivision-v1`; tracking `origin/feat/agrivision-v1`.
 - CI workflow shelved per user instruction and recorded in ADR 0009 (`docs/adr/0009-shelving-ci-workflow-for-initial-feature-push.md`):
   - `.github/workflows/ci.yml` safely backed up to `docs/ci-workflow.yml.backup`.
   - `.github/` added to `.gitignore`.
-- Branch `feat/agrivision-v1` prepared with all application code, models, tests, and documentation, excluding workflow files from the commit tree to unblock pushing with existing PAT.
-- Remote push to `origin/feat/agrivision-v1` pending.
+- Branch `feat/agrivision-v1` successfully published to GitHub: `origin/feat/agrivision-v1` (`9e5405d`).
+- Upstream configured: `git push` and `git pull` now track `origin/feat/agrivision-v1` by default.
+- All application code (FastAPI backend, React frontend, ONNX model weights, documentation) is live on GitHub.
 
 ## Frontend dependency-upgrade update (2026-11-07)
 - Work is on feature branch `fix/typescript-package-upgrade-20261107195947`; no push or deployment was performed.
