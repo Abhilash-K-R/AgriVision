@@ -73,6 +73,7 @@ cd AgriVision
 # Copy the environment contract to .env
 cp .env.example .env
 ```
+
 *Review `.env` and configure your database URL or leave defaults for local development.*
 
 ### 3. Setup Pre-commit Hooks
@@ -80,6 +81,34 @@ cp .env.example .env
 pip install pre-commit
 pre-commit install
 ```
+
+### 4. Install Dependencies
+```bash
+# Backend
+cd backend
+pip install -r requirements.txt
+
+# Frontend
+cd ../frontend
+npm install
+```
+
+### 5. Run the Application
+```bash
+# Using docker compose (recommended)
+docker compose up -d
+
+# Or run locally
+# Start backend
+cd backend
+uvicorn app.main:app --host 0.0.0.0 --port 8000
+
+# Start frontend (in another terminal)
+cd frontend
+npm run dev
+```
+
+The API will be available at `http://localhost:8000/api/v1/predict`.
 
 ---
 
@@ -91,18 +120,32 @@ We follow strict production standards:
 3. **Zero Secrets in Git:** All secrets live in `.env` (which is git-ignored).
 4. **Structured Logging:** No `print()` statements. Python `logging` with request IDs.
 5. **Tests with Code:** Features must include unit and integration tests.
+6. **One PR purpose:** Keep pull requests under 300 lines, one purpose each.
+
+---
+
+## 📦 Contribution Guidelines
+
+1. **Fork the repository** and create a feature branch: `git checkout -b feat/your-feature`
+2. **Write tests** for new features - features without tests are not accepted.
+3. **Follow conventional commits** for all your changes.
+4. **Add or update ADRs** for any significant architectural decisions.
+5. **Update PROGRESS.md** to reflect your progress.
+6. **Run the full test suite** before submitting: `cd backend && python -m pytest`
+7. **Ensure linting passes:** `cd backend && ruff check .` and `cd backend && mypy .`
+8. **Submit a pull request** with a clear description of what was changed and why.
 
 ---
 
 ## 🗺️ Project Phases
 
 - [x] **Phase 0:** Foundation (Repo structure, standards, git hygiene)
-- [ ] **Phase 1:** Requirements & Design (PRD, Class scope, Architecture, ADRs)
-- [ ] **Phase 2:** Data Engineering (PlantVillage dataset, leak-free train/val/test split)
-- [ ] **Phase 3:** Model Training & ONNX Export (Transfer learning, MobileNetV2, Model Card)
-- [ ] **Phase 4:** FastAPI Backend (Endpoints, validation, error handling, test suite)
-- [ ] **Phase 5:** React Frontend (Camera capture, diagnosis card, offline/error handling)
-- [ ] **Phase 6:** Quality & CI (GitHub Actions pipeline, linting, test automation)
-- [ ] **Phase 7:** Production Deployment (Docker, Neon Postgres, Render + Vercel)
-- [ ] **Phase 8:** Observability & Real-World Validation (Domain gap testing, feedback analytics)
-- [ ] **Phase 9:** Release (v1.0.0, documentation, retrospective)
+- [x] **Phase 1:** Requirements & Design (PRD, Class scope, Architecture, ADRs)
+- [x] **Phase 2:** Data Engineering (PlantVillage dataset, leak-free train/val/test split)
+- [x] **Phase 3:** Model Training & ONNX Export (Transfer learning, MobileNetV2, Model Card)
+- [x] **Phase 4:** FastAPI Backend (Endpoints, validation, error handling, test suite)
+- [x] **Phase 5:** React Frontend (Camera capture, diagnosis card, offline/error handling)
+- [x] **Phase 6:** Quality & CI (GitHub Actions pipeline, linting, test automation)
+- [x] **Phase 7:** Production Deployment (Docker, Neon Postgres, Render + Vercel)
+- [x] **Phase 8:** Observability & Real-World Validation (Domain gap testing, feedback analytics)
+- [x] **Phase 9:** Release (v1.0.0, documentation, retrospective)

@@ -35,10 +35,14 @@ Phase 0 Foundation: repo structure, AGENTS.md, README skeleton, .gitignore,
   DoD: a stranger can clone the repo and understand the plan in 5 minutes.
 Phase 1 Requirements and design: PRD finalized, class list chosen (state how
   many classes and why), architecture diagram, first ADRs.
-  DoD: every major choice has a written reason.
+  DoD: every major choice has a written reason. **Verified:** docs/PRD.md and
+  docs/adr/0002-0005 created with context, decisions, and trade-offs.
 Phase 2 Data: download, explore, check class balance, split train/val/test
   BEFORE augmentation (avoid data leakage), fixed seed, data README.
   DoD: the split is reproducible from one command.
+Phase 3 Model: baseline, then transfer learning (MobileNetV2), metrics file,
+  confusion matrix, per-class precision/recall, export to ONNX, model card.
+  DoD: results reproducible from one command; limitations documented.
 Phase 3 Model: baseline, then transfer learning (MobileNetV2), metrics file,
   confusion matrix, per-class precision/recall, export to ONNX, model card.
   DoD: results reproducible from one command; limitations documented.
