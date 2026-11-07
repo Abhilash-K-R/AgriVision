@@ -25,3 +25,4 @@ While updating the token permissions or configuring SSH keys is the long-term so
 - The remote repository receives the complete working application codebase immediately.
 - GitHub Actions will not run automated checks remotely until the workflow is re-introduced with an authorized token in Phase 6 hardening.
 - Local pre-push quality gates (Ruff lint, pytest tests, Vite TypeScript production build) must be run locally prior to merging.
+
