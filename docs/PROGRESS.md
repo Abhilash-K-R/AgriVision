@@ -69,10 +69,12 @@
 
 ## Current Git housekeeping
 - Current branch: `main`; tracking `origin/main`.
-- Both `feat/agrivision-v1` and `main` branches are synchronized and live on GitHub (`origin/main` at `a3cc4fa`).
-- Full AgriVision v1 codebase (FastAPI backend, React frontend, ONNX model weights, documentation, PRD, and ADRs 0001–0009) is successfully published to `main`.
-- CI workflow remains safely archived in `docs/ci-workflow.yml.backup` with `.github/` ignored, ready to be reinstated in Phase 6 hardening.
-- Working tree clean and up to date with remote.
+- Smoke test suite executed and 100% verified:
+  - Backend smoke tests: `pytest backend/tests` (4/4 passed in 2.27s) validating `/health`, `/predict` 422 input rejection, ONNX preprocessing tensor shape `(1, 3, 224, 224)`, and end-to-end model inference.
+  - Backend lint & types: `ruff check backend/` (passed) and `mypy` (passed across all 8 source files).
+  - Frontend production build: `npm run build` (`tsc -b && vite build`) passed in 1.45s; TypeScript 7 configuration resolved.
+  - ML Model: ONNX runtime verified with `agrivision_mobilenetv2.onnx` producing valid class probabilities and care advice.
+- Phase 6 Quality & CI smoke testing verified locally.
 
 ## Frontend dependency-upgrade update (2026-11-07)
 - Work is on feature branch `fix/typescript-package-upgrade-20261107195947`; no push or deployment was performed.

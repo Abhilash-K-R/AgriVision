@@ -34,9 +34,13 @@ export default defineConfig({
     chunkSizeWarningLimit: 600,
     rollupOptions: {
       output: {
-        manualChunks: {
-          react: ["react", "react-dom"],
-          router: ["react-router-dom"],
+        manualChunks(id: string) {
+          if (id.includes("node_modules/react/") || id.includes("node_modules/react-dom/")) {
+            return "react";
+          }
+          if (id.includes("node_modules/react-router-dom/")) {
+            return "router";
+          }
         },
       },
     },
